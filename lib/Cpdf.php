@@ -4864,7 +4864,7 @@ EOT;
 
             // Get opacity channel (negative of alpha channel)
             if ($imagick->getImageAlphaChannel() !== 0) {
-                $alpha_channel = $imagickClonable ? clone $imagick : $imagick->clone();
+                $alpha_channel = clone $imagick;
                 $alpha_channel->separateImageChannel(\Imagick::CHANNEL_ALPHA);
                 $alpha_channel->negateImage(true);
                 $alpha_channel->writeImage($tempfile_alpha);
